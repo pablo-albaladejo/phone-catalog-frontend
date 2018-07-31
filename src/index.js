@@ -10,7 +10,7 @@ import rootReducer from './reducers/root_reducer';
 import thunk from 'redux-thunk';
 import { createLogger } from 'redux-logger';
 
-import Home from './screens/Home';
+import Home from './screens/Home/';
 import registerServiceWorker from './registerServiceWorker';
 
 
