@@ -5,6 +5,7 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getIsFetching } from '../../reducers/root_reducer';
 import { getErrorMessage } from '../../reducers/errors';
+import { clearError } from '../../actions/errors';
 
 import Loadable from 'react-loading-overlay';
 
@@ -16,6 +17,10 @@ import ModalMessage from '../../components/ModalMessage';
 
 class Home extends Component {
 
+    onErrorClose = () => {
+        this.props.dispatch(clearError());
+    }
+
     render() {
         return (
             <Loadable
@@ -23,10 +28,11 @@ class Home extends Component {
                 spinner
             >
                 <div style={{ height: '100vh' }}>
-                    
+
                     {this.props.errorMessage && (
                         <ModalMessage
                             message={this.props.errorMessage}
+                            onClose={this.onErrorClose}
                         />
                     )}
 

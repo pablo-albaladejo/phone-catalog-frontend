@@ -3,6 +3,9 @@ import ReactDOM from 'react-dom';
 
 import { BrowserRouter } from 'react-router-dom';
 
+//Styles
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 //REDUX
 import { createStore, applyMiddleware, compose } from 'redux'
 import { Provider } from 'react-redux';
