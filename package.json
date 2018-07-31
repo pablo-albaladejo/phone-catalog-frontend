@@ -2,6 +2,7 @@
   "name": "phone-catalog-frontend",
   "version": "0.1.0",
   "description": "PhoneCatalogApp Frontend",
+  "homepage": "https://pablo-albaladejo.github.io/phone-catalog-frontend/",
   "dependencies": {
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
