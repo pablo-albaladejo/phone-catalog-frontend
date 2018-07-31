@@ -16,6 +16,10 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
+    "test:e2e:all": "testcafe chrome ./tests/e2e/*.test.ts",
     "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "testcafe": "^0.20.5"
   }
 }
