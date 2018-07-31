@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { Switch, Route, Redirect } from 'react-router-dom';
+import { Switch, Route, HashRouter, Redirect } from 'react-router-dom';
 
 import { connect } from 'react-redux';
 import { getIsFetching } from '../../reducers/root_reducer';
@@ -23,38 +23,40 @@ class Home extends Component {
 
     render() {
         return (
-            <Loadable
-                active={this.props.isFetching}
-                spinner
-            >
-                <div style={{ height: '100vh' }}>
+            <HashRouter>
+                <Loadable
+                    active={this.props.isFetching}
+                    spinner
+                >
+                    <div style={{ height: '100vh' }}>
 
-                    {this.props.errorMessage && (
-                        <ModalMessage
-                            message={this.props.errorMessage}
-                            onClose={this.onErrorClose}
-                        />
-                    )}
+                        {this.props.errorMessage && (
+                            <ModalMessage
+                                message={this.props.errorMessage}
+                                onClose={this.onErrorClose}
+                            />
+                        )}
 
-                    <Switch>
+                        <Switch>
 
-                        {/* Error */}
-                        <Route exact path='/error/notfound' component={NotFound} />
+                            {/* Error */}
+                            <Route exact path='/error/notfound' component={NotFound} />
 
-                        {/* PhoneDetail */}
-                        <Route exact path='/phone/:id' component={PhoneDetail} />
+                            {/* PhoneDetail */}
+                            <Route exact path='/phone/:id' component={PhoneDetail} />
 
-                        {/* PhonesList */}
-                        <Route exact path='/' component={PhonesList} />
+                            {/* PhonesList */}
+                            <Route exact path='/' component={PhonesList} />
 
-                        {/*Default  */}
-                        <Redirect to="/error/notfound" />
+                            {/*Default  */}
+                            <Redirect to="/error/notfound" />
 
-                    </Switch>
-                </div>
+                        </Switch>
+                    </div>
 
 
-            </Loadable>
+                </Loadable>
+            </HashRouter>
         )
     }
 }

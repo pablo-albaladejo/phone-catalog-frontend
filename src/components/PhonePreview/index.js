@@ -1,7 +1,19 @@
 import React, { Component } from 'react';
+
 import { Link } from 'react-router-dom';
 
+import {
+        Card, 
+        CardImg, 
+        CardText, 
+        CardBody,
+        CardTitle, 
+        Button 
+    } from 'reactstrap';
+
 class PhonePreviewComponent extends Component {
+
+
 
     render() {
 
@@ -9,17 +21,27 @@ class PhonePreviewComponent extends Component {
         const id = this.props.id;
 
         return (
-            <div className="phone-preview">
-                <div>{name}</div>
-                <div>{price}</div>
-                <div>{currency}</div>
+/*             <div >
+                <div></div>
+                <div></div>
                 <div>{color}</div>
                 <div>{thumb_url}</div>
                 <Link className="view-detail-button"
-                    to={`/phone/${id}`}
-                >Link</Link>
-            </div>
+                    
+                >Link</Link> */
 
+
+                <div className="phone-preview">
+                    <Card>
+                        <CardImg top width="100%" src={thumb_url} alt={name} />
+                        <CardBody>
+                            <CardTitle>{name + ' - ' + color}</CardTitle>
+                            <CardText>{price + ' - ' + currency} </CardText>
+                            {/* <Button className="view-detail-button" tag={Link} to={`/phone/${id}`}>Detail</Button> */}
+                            <Link className="view-detail-button" to={`/phone/${id}`}>Link</Link>
+                        </CardBody>
+                    </Card>
+                </div>
         );
     }
 }
