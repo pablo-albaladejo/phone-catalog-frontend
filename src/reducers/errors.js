@@ -1,13 +1,18 @@
 import { 
-    SET_ERROR, 
+    SET_ERROR,
     CLEAR_ERROR,
+
+    RESPONSE_GET_ALL_PHONES_ERROR,
+    RESPONSE_GET_PHONE_BY_ID_ERROR
 } from '../actions/actionTypes'
 
 const errors = (state = null, action) => {
     switch (action.type) {
         
         case SET_ERROR:
-            return action.message;
+        case RESPONSE_GET_ALL_PHONES_ERROR:
+        case RESPONSE_GET_PHONE_BY_ID_ERROR:
+            return action.err;
 
         case CLEAR_ERROR:
             return null;
