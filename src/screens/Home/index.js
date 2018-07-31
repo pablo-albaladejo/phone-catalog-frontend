@@ -12,6 +12,8 @@ import NotFound from '../NotFound';
 import PhoneDetail from '../PhoneDetail';
 import PhonesList from '../PhonesList';
 
+import ModalMessage from '../../components/ModalMessage';
+
 class Home extends Component {
 
     render() {
@@ -23,7 +25,9 @@ class Home extends Component {
                 <div style={{ height: '100vh' }}>
                     
                     {this.props.errorMessage && (
-                        <div>{this.props.errorMessage}</div>
+                        <ModalMessage
+                            message={this.props.errorMessage}
+                        />
                     )}
 
                     <Switch>
