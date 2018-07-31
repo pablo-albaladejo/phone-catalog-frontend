@@ -1,4 +1,4 @@
-import PhonesService from './PhonesService';
+import PhonesService from './PhonesService/PhonesService';
 
 class ServiceFacade {
 
