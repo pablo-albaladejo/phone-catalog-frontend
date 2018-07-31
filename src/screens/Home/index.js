@@ -21,6 +21,11 @@ class Home extends Component {
                 spinner
             >
                 <div style={{ height: '100vh' }}>
+                    
+                    {this.props.errorMessage && (
+                        <div>{this.props.errorMessage}</div>
+                    )}
+
                     <Switch>
 
                         {/* Error */}

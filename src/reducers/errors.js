@@ -22,6 +22,6 @@ const errors = (state = null, action) => {
     }
 }
 export const getErrorMessage = (state) => {
-    return state.errors;
+    return state.errors ? state.errors.message : null
 }
 export default errors;
