@@ -1,7 +1,7 @@
 {
   "name": "phone-catalog-frontend",
   "version": "0.1.0",
-  "homepage": "https://pablo-albaladejo.github.io/phone-catalog-frontend/",
+  "description": "PhoneCatalogApp Frontend",
   "dependencies": {
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
@@ -17,11 +17,14 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "test:e2e:all": "testcafe chrome ./tests/e2e/*.test.ts",
-    "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "eject": "react-scripts eject"
   },
   "devDependencies": {
     "testcafe": "^0.20.5"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/pablo-albaladejo/phone-catalog-frontend.git"
   }
 }
