@@ -8,7 +8,7 @@ test("Not existing page redirects to 404", async t => {
 });
 
 fixture`Phone doesn't exit`.page`http://localhost:3000/phone/invalid`;
-test("Not invalid phone id redirects to 404", async t => {
+test("Invalid phone id redirects to 404", async t => {
   await t.expect(getWindowLocation()).eql('http://localhost:3000/error/notfound');
 });
 
