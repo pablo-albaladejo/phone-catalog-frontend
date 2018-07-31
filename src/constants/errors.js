@@ -1,3 +1,4 @@
 export default {
     PHONE_NOT_FOUND: 'PHONE_NOT_FOUND',
+    PHONES_NOT_FOUND: 'PHONES_NOT_FOUND',
 }

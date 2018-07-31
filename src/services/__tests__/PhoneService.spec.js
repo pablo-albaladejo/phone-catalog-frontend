@@ -1,5 +1,5 @@
 import PhoneService from '../PhonesService';
-import ERRORS from '../../../constants/errors';
+import ERRORS from '../../constants/errors';
 
 describe('PhonesService', () => {
 

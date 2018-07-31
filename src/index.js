@@ -13,10 +13,11 @@ import { createLogger } from 'redux-logger';
 import Home from './screens/Home/';
 import registerServiceWorker from './registerServiceWorker';
 
+import ServiceFacade from './services/ServiceFacade';
 
 //Logger
 const logger = createLogger({
-    predicate: (getState, action) => !process.env.NODE_ENV || process.env.NODE_ENV === 'development',
+    predicate: (getState, action) => ServiceFacade.isDev(),
 });
 
 //Store
