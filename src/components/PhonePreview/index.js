@@ -5,11 +5,18 @@ class PhonePreviewComponent extends Component {
 
     render() {
 
+        const { name, price, currency, color, thumb_url } = this.props.data;
+        const id = this.props.id;
+
         return (
             <div className="phone-preview">
-                PhonePreviewComponent
-                <Link className="view-detail-button" 
-                    to='/phone/1'
+                <div>{name}</div>
+                <div>{price}</div>
+                <div>{currency}</div>
+                <div>{color}</div>
+                <div>{thumb_url}</div>
+                <Link className="view-detail-button"
+                    to={`/phone/${id}`}
                 >Link</Link>
             </div>
 

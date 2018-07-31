@@ -5,18 +5,18 @@ import PhonePreviewComponent from '../PhonePreview/';
 class PhoneListComponent extends Component {
 
     render() {
-
         return (
             <div>
-                {this.props.phones.map(phone => {
-                    return (
-                        <PhonePreviewComponent
-                            phone={phone}
+                {Object.keys(this.props.phones).map(phoneId => {
+                    return(
+                        <PhonePreviewComponent 
+                            key={phoneId}
+                            id={phoneId}
+                            data={this.props.phones[phoneId]}
                         />
-                    )
+                    );
                 })}
             </div>
-
         );
     }
 }

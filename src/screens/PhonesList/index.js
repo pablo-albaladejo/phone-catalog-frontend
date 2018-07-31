@@ -1,20 +1,28 @@
 import React, { Component } from 'react';
 
+import { connect } from 'react-redux';
+import { getAllPhones } from '../../actions/phones';
+
 import PhoneListComponent from '../../components/PhoneList';
 
 class PhoneListScreen extends Component {
 
-  render() {
-    const phonesList = [1,2,3];
-    return (
-      <div>
-        <h1>PhoneList</h1>
-        <PhoneListComponent
-          phones={phonesList}
-        />
-      </div>
+  componentWillMount() {
+    this.props.dispatch(getAllPhones());
+  }
 
+  render() {
+    const { phonesList } = this.props;
+    return (
+      <PhoneListComponent
+        phones={phonesList}
+      />
     );
   }
 }
-export default PhoneListScreen;
+function mapStateToProps(state) {
+  return {
+    phonesList: state.phones.data,
+  }
+}
+export default connect(mapStateToProps)(PhoneListScreen);
