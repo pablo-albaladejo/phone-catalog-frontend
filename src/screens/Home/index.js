@@ -2,6 +2,12 @@ import React, { Component } from 'react';
 
 import { Switch, Route, Redirect } from 'react-router-dom';
 
+import { connect } from 'react-redux';
+import { getIsFetching } from '../../reducers/root_reducer';
+import { getErrorMessage } from '../../reducers/errors';
+
+import Loadable from 'react-loading-overlay';
+
 import NotFound from '../NotFound';
 import PhoneDetail from '../PhoneDetail';
 import PhonesList from '../PhonesList';
@@ -10,22 +16,37 @@ class Home extends Component {
 
     render() {
         return (
-            <Switch>
+            <Loadable
+                active={this.props.isFetching}
+                spinner
+            >
+                <div style={{ height: '100vh' }}>
+                    <Switch>
 
-                {/* Error */}
-                <Route exact path='/error/notfound' component={NotFound} />
+                        {/* Error */}
+                        <Route exact path='/error/notfound' component={NotFound} />
 
-                {/* PhoneDetail */}
-                <Route exact path='/phone/:id' component={PhoneDetail} />
+                        {/* PhoneDetail */}
+                        <Route exact path='/phone/:id' component={PhoneDetail} />
 
-                {/* PhonesList */}
-                <Route exact path='/' component={PhonesList} />
+                        {/* PhonesList */}
+                        <Route exact path='/' component={PhonesList} />
 
-                {/*Default  */}
-                <Redirect to="/error/notfound" />
+                        {/*Default  */}
+                        <Redirect to="/error/notfound" />
 
-            </Switch>
+                    </Switch>
+                </div>
+
+
+            </Loadable>
         )
     }
 }
-export default Home;
+function mapStateToProps(state) {
+    return {
+        isFetching: getIsFetching(state),
+        errorMessage: getErrorMessage(state),
+    }
+}
+export default connect(mapStateToProps)(Home);
