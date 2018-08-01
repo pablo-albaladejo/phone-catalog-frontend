@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import { connect } from 'react-redux';
 import { getPhoneById } from '../../actions/phones';
+import PhoneDetailComponent from '../../components/PhoneDetail';
 
 class PhoneDetail extends Component {
 
@@ -9,21 +10,20 @@ class PhoneDetail extends Component {
     this.props.dispatch(getPhoneById(this.props.phoneId));
   }
 
+  onBack = () => {
+    this.props.history.push('/');
+  }
+
   render() {
-    //const { name, description, price, currency, color } = this.props.phone;
     const phone = this.props.phone
     return (
-      <div>
+      <div className="col-sm-12 col-md-10 mx-auto">
         {phone && (
-          <div>
-            <div>{phone.name}</div>
-            <div>{phone.description}</div>
-            <div>{phone.price}</div>
-            <div>{phone.currency}</div>
-            <div>{phone.color}</div>
-          </div>
-        )
-        }
+          <PhoneDetailComponent
+            phone={phone}
+            onBack={this.onBack}
+          />
+        )}
       </div>
     );
   }
