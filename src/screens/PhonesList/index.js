@@ -11,12 +11,19 @@ class PhoneListScreen extends Component {
     this.props.dispatch(getAllPhones());
   }
 
+  onSelected = (id) => {
+    this.props.history.push(`/phone/${id}`);
+  }
+
   render() {
     const { phonesList } = this.props;
     return (
-      <PhoneListComponent
-        phones={phonesList}
-      />
+      <div className="col-sm-12 col-md-6 mx-auto">
+        <PhoneListComponent
+          phones={phonesList}
+          onSelected={this.onSelected}
+        />
+      </div>
     );
   }
 }

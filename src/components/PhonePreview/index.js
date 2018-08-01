@@ -1,19 +1,15 @@
 import React, { Component } from 'react';
 
-import { Link } from 'react-router-dom';
-
 import {
-        Card, 
-        CardImg, 
-        CardText, 
-        CardBody,
-        CardTitle, 
-        Button 
-    } from 'reactstrap';
+    Card,
+    CardImg,
+    CardText,
+    CardBody,
+    CardTitle,
+    Badge,
+} from 'reactstrap';
 
 class PhonePreviewComponent extends Component {
-
-
 
     render() {
 
@@ -21,27 +17,15 @@ class PhonePreviewComponent extends Component {
         const id = this.props.id;
 
         return (
-/*             <div >
-                <div></div>
-                <div></div>
-                <div>{color}</div>
-                <div>{thumb_url}</div>
-                <Link className="view-detail-button"
-                    
-                >Link</Link> */
-
-
-                <div className="phone-preview">
-                    <Card>
-                        <CardImg top width="100%" src={thumb_url} alt={name} />
-                        <CardBody>
-                            <CardTitle>{name + ' - ' + color}</CardTitle>
-                            <CardText>{price + ' - ' + currency} </CardText>
-                            {/* <Button className="view-detail-button" tag={Link} to={`/phone/${id}`}>Detail</Button> */}
-                            <Link className="view-detail-button" to={`/phone/${id}`}>Link</Link>
-                        </CardBody>
-                    </Card>
-                </div>
+            <div className="phone-preview">
+                <Card onClick={() => this.props.onSelected(id)}>
+                    <CardImg top width="100%" src={thumb_url} alt={name} />
+                    <CardBody>
+                        <CardTitle>{name}</CardTitle>
+                        <CardText>{price + ' - ' + currency} <Badge color="primary">{color}</Badge></CardText>
+                    </CardBody>
+                </Card>
+            </div>
         );
     }
 }

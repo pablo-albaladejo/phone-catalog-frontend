@@ -1,22 +1,25 @@
 import React, { Component } from 'react';
 
+import { Container } from 'reactstrap';
+
 import PhonePreviewComponent from '../PhonePreview/';
 
 class PhoneListComponent extends Component {
 
     render() {
         return (
-            <div>
+            <Container>
                 {Object.keys(this.props.phones).map(phoneId => {
                     return(
                         <PhonePreviewComponent 
                             key={phoneId}
                             id={phoneId}
                             data={this.props.phones[phoneId]}
+                            onSelected={this.props.onSelected}
                         />
                     );
                 })}
-            </div>
+            </Container>
         );
     }
 }
