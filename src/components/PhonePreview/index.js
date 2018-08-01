@@ -18,7 +18,7 @@ class PhonePreviewComponent extends Component {
 
         return (
             <div className="phone-preview">
-                <Card onClick={() => this.props.onSelected(id)}>
+                <Card className={"view-detail-button"} onClick={() => this.props.onSelected(id)}>
                     <CardImg top width="100%" src={thumb_url} alt={name} />
                     <CardBody>
                         <CardTitle>{name}</CardTitle>
