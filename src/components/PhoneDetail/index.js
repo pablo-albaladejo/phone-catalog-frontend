@@ -24,11 +24,11 @@ class PhoneDetailComponent extends Component {
         return (
             <Container>
                 <Card>
-                    <CardImg top width="100%" src={image_url} alt={name} />
+                    <CardImg className="phone-detail-image_url" top width="100%" src={image_url} alt={name} />
                     <CardBody>
-                        <CardTitle>{name}</CardTitle>
-                        <CardSubtitle>{price + ' ' + currency} <Badge color="primary">{color}</Badge></CardSubtitle>
-                        <CardText>{description}</CardText>
+                        <CardTitle className="phone-detail-name">{name}</CardTitle>
+                        <CardSubtitle><div className="phone-detail-price">{price + ' ' + currency}</div> <Badge className="phone-detail-color" color="primary">{color}</Badge></CardSubtitle>
+                        <CardText className="phone-detail-description">{description}</CardText>
                     </CardBody>
                     <CardFooter>
                         <Button className="view-detail-button" onClick={this.props.onBack} color="info">Back</Button>

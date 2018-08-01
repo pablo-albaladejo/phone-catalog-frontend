@@ -8,7 +8,7 @@ class PhoneListComponent extends Component {
 
     render() {
         return (
-            <Container>
+            <Container className="phone-list">
                 {Object.keys(this.props.phones).map(phoneId => {
                     return(
                         <PhonePreviewComponent 

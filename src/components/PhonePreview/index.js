@@ -19,10 +19,11 @@ class PhonePreviewComponent extends Component {
         return (
             <div className="phone-preview">
                 <Card className={"view-detail-button"} onClick={() => this.props.onSelected(id)}>
-                    <CardImg top width="100%" src={thumb_url} alt={name} />
+                    <CardImg className="phone-preview-thumb_url" top width="100%" src={thumb_url} alt={name} />
                     <CardBody>
-                        <CardTitle>{name}</CardTitle>
-                        <CardText>{price + ' - ' + currency} <Badge color="primary">{color}</Badge></CardText>
+                        <CardTitle className="phone-preview-name">{name}</CardTitle>
+                        <CardText>
+                            <span className="phone-preview-price">{price + ' ' + currency}</span> <Badge className="phone-preview-color" color="primary">{color}</Badge></CardText>
                     </CardBody>
                 </Card>
             </div>

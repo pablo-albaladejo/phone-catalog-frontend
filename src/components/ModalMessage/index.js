@@ -8,11 +8,11 @@ class ModalMessage extends Component {
     return (
       <Modal isOpen={this.props.message !== null}>
         <ModalHeader>Error</ModalHeader>
-        <ModalBody>
+        <ModalBody className="modal-message">
           {this.props.message}
         </ModalBody>
         <ModalFooter>
-          <Button color="primary" onClick={this.props.onClose}>Close</Button>
+          <Button className="modal-button" color="primary" onClick={this.props.onClose}>Close</Button>
         </ModalFooter>
       </Modal>
     );
