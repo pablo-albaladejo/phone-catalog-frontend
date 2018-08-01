@@ -30,9 +30,11 @@ class PhoneDetail extends Component {
 }
 function mapStateToProps(state, ownParams) {
   const phoneId = ownParams.match.params.id;
-  let phone = state.phones.data[phoneId];
+  const ids = Object.keys(state.phones.data);
 
-  if (state.errors) { //id not found
+  const phone = state.phones.data[phoneId];
+
+  if (state.errors || (ids.length > 0 && !ids.find(id => id === phoneId))){ //id not found
     //redirect to error page
     ownParams.history.push('/error/notfound');
   }
