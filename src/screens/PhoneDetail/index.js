@@ -18,7 +18,7 @@ class PhoneDetail extends Component {
     const phone = this.props.phone
     return (
       <div className="col-sm-12 col-md-10 mx-auto">
-        {phone && (
+        {phone && !this.props.isLoading && (
           <PhoneDetailComponent
             phone={phone}
             onBack={this.onBack}
@@ -42,6 +42,7 @@ function mapStateToProps(state, ownParams) {
   return {
     phoneId,
     phone,
+    isLoading: state.phones.isFetching,
   }
 }
 export default connect(mapStateToProps)(PhoneDetail);

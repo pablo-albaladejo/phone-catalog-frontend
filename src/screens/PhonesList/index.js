@@ -19,10 +19,12 @@ class PhoneListScreen extends Component {
     const { phonesList } = this.props;
     return (
       <div className="col-sm-12 col-md-6 mx-auto">
-        <PhoneListComponent
-          phones={phonesList}
-          onSelected={this.onSelected}
-        />
+        {!this.props.isLoading && (
+          <PhoneListComponent
+            phones={phonesList}
+            onSelected={this.onSelected}
+          />
+        )}
       </div>
     );
   }
@@ -30,6 +32,7 @@ class PhoneListScreen extends Component {
 function mapStateToProps(state) {
   return {
     phonesList: state.phones.data,
+    isLoading: state.phones.isFetching,
   }
 }
 export default connect(mapStateToProps)(PhoneListScreen);
